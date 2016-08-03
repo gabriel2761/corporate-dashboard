@@ -25,15 +25,17 @@
     <div class="header">
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
-          <div class="navbar-header">
-
-          </div>
+          <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">Geographics</a></li>
+            <li role="presentation"><a href="#">Key Metrics</a></li>
+            <li role="presentation"><a href="#">Data</a></li>
+          </ul>
         </div>
       </div>
     </div>
 
     <div class="container">
-    <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
+      <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
     </div>
 
     <div class="footer">
