@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="corporateDashboardApp">
+  <body ng-app="corporateDashboardApp" ng-controller="NavbarController as navbar">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -25,7 +25,7 @@
     <div class="header">
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
-          <ul ng-controller="NavbarController as navbar" class="nav nav-tabs">
+          <ul class="nav nav-tabs">
             <li ng-click="navbar.selectTab(1)" ng-class="{ active: navbar.isSelected(1) }" role="presentation"><a href="#">Geographics</a></li>
             <li ng-click="navbar.selectTab(2)" ng-class="{ active: navbar.isSelected(2) }" role="presentation"><a href="#">Key Metrics</a></li>
             <li ng-click="navbar.selectTab(3)" ng-class="{ active: navbar.isSelected(3) }" role="presentation"><a href="#">Data</a></li>
@@ -34,7 +34,7 @@
       </div>
     </div>
 
-    <div ng-controller="NavbarController as navbar" class="container">
+    <div class="container">
       <div ng-show="navbar.isSelected(1)" ng-include="'views/geospatial-view.html'"></div>
       <div ng-show="navbar.isSelected(2)" ng-include="'views/keymetrics-view.html'"></div>
       <div ng-show="navbar.isSelected(3)" ng-include="'views/data-view.html'"></div>
