@@ -26,16 +26,18 @@
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
           <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="#">Geographics</a></li>
-            <li role="presentation"><a href="#">Key Metrics</a></li>
-            <li role="presentation"><a href="#">Data</a></li>
+            <li ng-click="tab=1" role="presentation" class="active"><a href="#">Geographics</a></li>
+            <li ng-click="tab=2" role="presentation"><a href="#">Key Metrics</a></li>
+            <li ng-click="tab=3" role="presentation"><a href="#">Data</a></li>
           </ul>
         </div>
       </div>
     </div>
 
-    <div class="container">
-      <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
+    <div ng-init="tab=1" class="container">
+      <div ng-show="tab===1" ng-include="'views/geospatial-view.html'"></div>
+      <div ng-show="tab===2" ng-include="'views/keymetrics-view.html'"></div>
+      <div ng-show="tab===3" ng-include="'views/data-view.html'"></div>
     </div>
 
     <div class="footer">
