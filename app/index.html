@@ -25,19 +25,19 @@
     <div class="header">
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
-          <ul class="nav nav-tabs">
-            <li ng-click="tab=1" role="presentation" class="active"><a href="#">Geographics</a></li>
-            <li ng-click="tab=2" role="presentation"><a href="#">Key Metrics</a></li>
-            <li ng-click="tab=3" role="presentation"><a href="#">Data</a></li>
+          <ul ng-controller="NavbarController as navbar" class="nav nav-tabs">
+            <li ng-click="navbar.selectTab(1)" ng-class="{ active: navbar.isSelected(1) }" role="presentation"><a href="#">Geographics</a></li>
+            <li ng-click="navbar.selectTab(2)" ng-class="{ active: navbar.isSelected(2) }" role="presentation"><a href="#">Key Metrics</a></li>
+            <li ng-click="navbar.selectTab(3)" ng-class="{ active: navbar.isSelected(3) }" role="presentation"><a href="#">Data</a></li>
           </ul>
         </div>
       </div>
     </div>
 
-    <div ng-init="tab=1" class="container">
-      <div ng-show="tab===1" ng-include="'views/geospatial-view.html'"></div>
-      <div ng-show="tab===2" ng-include="'views/keymetrics-view.html'"></div>
-      <div ng-show="tab===3" ng-include="'views/data-view.html'"></div>
+    <div ng-controller="NavbarController as navbar" class="container">
+      <div ng-show="navbar.isSelected(1)" ng-include="'views/geospatial-view.html'"></div>
+      <div ng-show="navbar.isSelected(2)" ng-include="'views/keymetrics-view.html'"></div>
+      <div ng-show="navbar.isSelected(3)" ng-include="'views/data-view.html'"></div>
     </div>
 
     <div class="footer">
