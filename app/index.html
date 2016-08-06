@@ -35,7 +35,8 @@
     </div>
 
     <div class="container">
-      <div ng-show="navbar.isSelected(1)" ng-include="'views/geospatial-view.html'"></div>
+      <div class="module" ng-show="navbar.isSelected(1)" ng-include="'views/geospatial-view.html'"></div>
+      <!-- <div id="map" class="module" ng-show="navbar.isSelected(1)" ></div> -->
       <div ng-show="navbar.isSelected(2)" ng-include="'views/keymetrics-view.html'"></div>
       <div ng-show="navbar.isSelected(3)" ng-include="'views/data-view.html'"></div>
     </div>
@@ -63,10 +64,26 @@
     <!-- endbower -->
     <!-- endbuild -->
 
+    <script>
+      function initMap() {
+        // Create a map object and specify the DOM element for display.
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          scrollwheel: false,
+          zoom: 8
+        });
+      }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1pbLKBxBIILnutncCZManXJFT9L29f4s&callback=initMap" async defer></script>
+
+
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <!-- endbuild -->
+
 </body>
 </html>
